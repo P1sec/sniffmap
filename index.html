@@ -31,37 +31,45 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>SniffMap shows risk of interception, per country</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Sniffmap is a project to map the potential Internet mass interception performed by NSA and its allies (USA, UK, Canada, Australia, New Zealand).</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<a href="images/130606193143-02-nsa-prism-horizontal-gallery.jpg"><img src="images/130606193143-02-nsa-prism-horizontal-gallery.jpg"></a>
+
+<p>Actually, we get route data not only per country but also per ISP and operator, but for now we didn't find a way to visualize that neatly. </p>
+
+<h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Research methodology</h3>
+
+<p>As stated in the fateful NSA document, many telecommunication links go through USA and its allies to connect two other countries. This is due to least cost routing and link usage. Therefore, NSA can leverage on this to capture a lot of traffic that otherwise would not go through its points of interception.</p>
+
+<p>To create our dataset, we try to detect each time an internet route between two IP addresses pass by an NSA controlled country and therefore can be considered as intercepted. As you'll see, around 80% of the Internet is captured by NSA and allies.</p>
+
+<p>Our metholody is the following
+<ol>
+	<LI>Choose a random list of target IP address</LI>
+	<LI>For each country take all known traceroute gateways</LI>
+	<LI>For each traceroute gateways test each target IP address</LI>
+	<LI>If this route goes through one NSA-controlled country, mark the route as "bad"</LI>
+	<LI>Compute percentage over all routes for a given country (using multiple traceroute gateways hence hopefully multiple ISPs and operators to have meaningful results)</LI>
+	<LI></LI>
+</ol>
+</p>
+
+<h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Join us!</h3>
+
+<p>As you can see, many countries do not have measurement yet. You can help improve this by providing us HTTP traceroute gateways or shells for the countries that are missing. To do this, simply clone the github repository, get our ssh public key, and add it to one machine in the relevant country.</p>
+
+<pre><code>$ git clone git@github.com:P1sec/sniffmap.git
+Cloning into 'sniffmap'...
+remote: Counting objects: 18, done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 18 (delta 2), reused 0 (delta 0)
+Receiving objects: 100% (18/18), 35.92 KiB, done.
+Resolving deltas: 100% (2/2), done.
+$
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 
