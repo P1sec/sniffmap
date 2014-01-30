@@ -52,9 +52,23 @@
 	<LI>For each traceroute gateways test each target IP address</LI>
 	<LI>If this route goes through one NSA-controlled country, mark the route as "bad"</LI>
 	<LI>Compute percentage over all routes for a given country (using multiple traceroute gateways hence hopefully multiple ISPs and operators to have meaningful results)</LI>
-	<LI></LI>
 </ol>
 </p>
+
+<h2><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Known bias</h2>
+
+<p>There are a few known bias
+<ul>
+	<LI>Results are dependent on the variety of traceroute source (i.e. traceroute http gateways, looking glass, local shell access, ...).</LI>
+	<LI>Results are dependent on the fact that even if traceroute sources are varied, they should be depending of different BGP AS (Autonomous Systems) in order to really represent the country's traffic.</LI>
+	<LI>This analysis is not weighted by country's traffic quantity per AS, thus it is a percentage of _routes_ potentially intercepted, not of quantity of traffic intercepted.</LI>
+	<LI>Not only NSA and the "Five Eyes" allies are intercepting Internet traffic. It seems to have become a popular sport these days. So you can expect also some other countries to intercept and therefore the real stats should be much higher.</LI>
+	<LI>We're depending on geographic IP lookup data tables to determine location of routers. Since these cannot be 100% accurate, our stats are biased.</LI>
+	<LI>On a given route, the fact that a router is attributed to one country does not clears other routers as these could also be compromised by NSA and allies or even owned by a collaborating company.</LI>
+	<LI>The routes shown by traceroute may not show the underlying physical nor layer 2 network topology, such as MPLS, satellite links or fiber optic (DWDM or else) network. Therefore, this is another risk of interception and another set of location for such interceptions.</LI>
+</ul>
+</p>
+
 
 <h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Join us!</h3>
 
