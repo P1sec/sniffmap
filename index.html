@@ -80,8 +80,13 @@
 
 <p>As you can see, many countries do not have measurement yet. You can help improve this by providing us traceroute results. To do this, simply run the following command:</p>
 
-<pre><code>$ curl http://sniffmap.telcomap.org/netprobe.sh | sh
+<pre><code>$ curl http://sniffmap.telcomap.org/netprobe.sh | bash
 </code></pre>
+
+If you want some debug, try:
+<pre><code>$ curl http://sniffmap.telcomap.org/netprobe.php?debug=1 | bash
+</code></pre>
+
 
 <p>This will run traceroute (or even mtr if it is installed) and report result to SniffMap.</p>
 
