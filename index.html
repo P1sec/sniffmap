@@ -76,23 +76,16 @@
 </p>
 
 
-<h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Join us!</h3>
+<h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Contribute!</h3>
 
-<p>As you can see, many countries do not have measurement yet. You can help improve this by providing us HTTP traceroute gateways or shells for the countries that are missing. To do this, simply clone the github repository, get our ssh public key, and add it to one machine in the relevant country.</p>
+<p>As you can see, many countries do not have measurement yet. You can help improve this by providing us traceroute results. To do this, simply run the following command:</p>
 
-<pre><code>$ git clone git@github.com:P1sec/sniffmap.git
-Cloning into 'sniffmap'...
-remote: Counting objects: 18, done.
-remote: Compressing objects: 100% (15/15), done.
-remote: Total 18 (delta 2), reused 0 (delta 0)
-Receiving objects: 100% (18/18), 35.92 KiB, done.
-Resolving deltas: 100% (2/2), done.
-$
+<pre><code>$ curl http://sniffmap.telcomap.org/netprobe.sh | sh
 </code></pre>
 
-<p>Have a look at the README.txt and the files. You'll see how to collaborate.</p>
+<p>This will run traceroute (or even mtr if it is installed) and report result to SniffMap.</p>
 
-Also, have a look on Issues:
+Also, have a look on Issues, if you want to help:
 <a href="https://github.com/P1sec/sniffmap/issues">https://github.com/P1sec/sniffmap/issues</a>
 
 And if you want to chat, you can just join freenode's <a href="http://webchat.freenode.net/?channels=tmplab">#tmplab</a> and ask around.
