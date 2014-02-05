@@ -61,6 +61,7 @@
 </ol>
 </p>
 
+<a name="known_bias">
 <h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Known bias</h3>
 
 <p>There are a few known bias
@@ -72,8 +73,22 @@
 	<LI>We're depending on geographic IP lookup data tables to determine location of routers. Since these cannot be 100% accurate, our stats are biased.</LI>
 	<LI>On a given route, the fact that a router is attributed to one country does not clears other routers as these could also be compromised by NSA and allies or even owned by a collaborating company.</LI>
 	<LI>The routes shown by traceroute may not show the underlying physical nor layer 2 network topology, such as MPLS, satellite links or fiber optic (DWDM or else) network. Therefore, this is another risk of interception and another set of location for such interceptions.</LI>
+	<LI>If a router from a non-NSA controlled country was compromised (and backdoored) by NSA to establish mass-intercept, they would probably pay attention that this attack remain "non attribuable". Non-attribution is a critical criteria of cyber security. That would mean using countries which would probably not be within Five Eyes and certainly not within USA. This would cause a false negative that is extremely hard to detect: hard to the point it is designed to be concealed even to local counter-intelligence services of the targeted country.</LI>
 </ul>
 </p>
+
+<a name="bgp">
+<h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>BGP</h3>
+
+<p>Ok, so this research deals with routes, so why not using BGP? Well, there are many reasons why we don't use BGP for conducting this analysis:
+	<ul>
+		<LI>BGP is just an information store, a distributed route database. It does not imply that the routes described in BGP tables are going to be the routes used by all routers on the path. So this means that it could introduce a measurement bias.</LI>
+		<LI>In the case that NSA and allies would backdoor third party routers to conduct interception, they would take good care to not alter the BGP tables so that the traffic redirect wouldn't be observable outside of the compromised infrastructure.</LI>
+		<LI>Some routers which direct packets before it reaches the Internet BGP routers may be statically configured to use specific other links than the one dictated by the country. This would not show up in BGP tables yet provide alternate routes to some selected customers.</LI>
+		<!-- <LI></LI> -->
+	</ul>
+</p>
+
 
 <a name="contribute"></a>
 
@@ -109,10 +124,12 @@ Send us bounty:
 <a name="join"></a>
 <h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Join!</h3>
 
+We are definitely looking for people who can help on the coding and on the deployment side of SniffMap.
+
+If you want to chat about that, you can join freenode's <a href="http://webchat.freenode.net/?channels=tmplab">#tmplab</a> and ask around or send us a mail.
+
 Also, have a look on Issues, if you want to help:
 <a href="https://github.com/P1sec/sniffmap/issues">https://github.com/P1sec/sniffmap/issues</a>
-
-And if you want to chat, you can just join freenode's <a href="http://webchat.freenode.net/?channels=tmplab">#tmplab</a> and ask around.
 
 <a name="subscribe"></a>
 <h3><a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Get notified</h3>
